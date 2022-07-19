@@ -1,0 +1,16 @@
+<div class="content">
+    <mat-card class="mat-elevation-z4">
+        <mat-card-header>
+            <mat-card-title>{{product.title}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src={{product.img}}>
+        <mat-card-content>
+           <strong>Price - {{product.price}}</strong>
+        </mat-card-content>
+        <mat-card-actions>
+            <!-- <button mat-button>Remove</button> -->
+            <button *ngIf="isAlreadyBuyOrNot()" mat-button (click)="onProductPurchase(product)">Buy</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+

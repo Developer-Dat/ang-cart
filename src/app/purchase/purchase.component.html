@@ -1,0 +1,47 @@
+<mat-list>
+    <mat-list-item *ngFor="let product of purchasedProducts">
+        <h3 matLine> {{product.title}} </h3>
+        <span> {{product.price}} </span>
+    </mat-list-item>
+</mat-list>
+<mat-list role="list">
+    <mat-list-item role="listitem">
+        <h3 matLine> SubTotal </h3>
+        <span> {{subTotal}} </span>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+        <h3 matLine> Total (SubTotal+ 4%tax) </h3>
+        <span> {{subTotal+((subTotal*4)/100)}} </span>
+    </mat-list-item>
+</mat-list>
+
+<mat-accordion>
+    <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+               Delivery Address
+            </mat-panel-title>
+            <!-- <mat-panel-description>
+                This is a summary of the content
+            </mat-panel-description> -->
+        </mat-expansion-panel-header>
+        <p><strong>Name :</strong>{{deliveryAddress.name}}</p>
+        <p><strong>Address :</strong>{{deliveryAddress.address}}</p>
+        <p><strong>city :</strong>{{deliveryAddress.city}}</p>
+        <p><strong>Pin :</strong>{{deliveryAddress.pin}}</p>
+        <p><strong>State :</strong>{{deliveryAddress.state}}</p>
+    </mat-expansion-panel>
+    <!-- <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Self aware panel
+            </mat-panel-title>
+            <mat-panel-description>
+                Currently I am {{panelOpenState ? 'open' : 'closed'}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>I'm visible because I am open</p>
+    </mat-expansion-panel> -->
+</mat-accordion>
+
+<button mat-button color="accent" (click)="confirmPurchase()">Confirm Purchase</button>

@@ -1,0 +1,15 @@
+<app-user-details [userDetails]="user"></app-user-details>
+
+<mat-toolbar color="primary">
+    <span *ngIf="purchaseTotal>0">
+        Purchase Total = {{purchaseTotal}}
+        <button mat-button color="accent" (click)="gotoNext()">Confirm</button>
+    </span>
+    <span *ngIf="purchaseTotal==0">Please add Item To cart</span>
+</mat-toolbar>
+
+<div class="product-wrapper">
+    <div *ngFor="let product of productArray">
+        <app-product [purchaseProducts]="purchaseProducts" (productPurchaseEventEmitter)="selectedProductToPurchase($event)"  [product]="product"></app-product>
+    </div>
+</div>
