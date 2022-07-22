@@ -19,6 +19,8 @@ import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.c
 import { MatTableComponent } from './mat-table/mat-table.component';
 import { Mat1TableComponent } from './mat1-table/mat1-table.component';
 import { Mat2TableComponent } from './mat2-table/mat2-table.component';
+import { ApiCallComponent } from './api-call/api-call.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,16 +34,18 @@ import { Mat2TableComponent } from './mat2-table/mat2-table.component';
     ConfirmDialogComponent,
     MatTableComponent,
     Mat1TableComponent,
-    Mat2TableComponent
+    Mat2TableComponent,
+    ApiCallComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
-  providers: [CommonService,CartService],
+  providers: [CommonService,CartService,HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
